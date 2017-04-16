@@ -26,7 +26,7 @@ JasonettePlugin.prototype.apply = function(compiler) {
   const options = this.options
 
   compiler.plugin("emit", (compilation, callback) => {
-    for(var asset in compilation.assets) {
+    Object.keys(compilation.assets).forEach((asset) => {
       const compiled = vm.runInThisContext(compilation.assets[asset].source())
       var source = JSON.stringify(
         compiled.default || compiled.jasonette,
@@ -37,7 +37,7 @@ JasonettePlugin.prototype.apply = function(compiler) {
         source: () => source,
         size: () => source.length
       }
-    }
+    })
 
     callback()
   })
