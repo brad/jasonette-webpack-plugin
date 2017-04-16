@@ -35,7 +35,6 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
-    "travis": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "cover": "nyc --require babel-register mocha",
     "release": "standard-version",
     "build": "babel -d dist src",
