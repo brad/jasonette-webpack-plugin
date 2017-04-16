@@ -13,4 +13,8 @@ The Jasonette Webpack plugin aims to take some of the pain out of writing JSON f
 - Automatic minification of your JSON, which can reduce the file size by a lot
 - Access to the whole node ecosystem
 
+## Install
+
+`npm install jasonette-webpack-plugin`
+
 Example usage coming soon!
