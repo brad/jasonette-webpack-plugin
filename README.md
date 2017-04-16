@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/brad/jasonette-webpack-plugin.svg?branch=master)](https://travis-ci.org/brad/jasonette-webpack-plugin) [![codecov](https://codecov.io/gh/brad/jasonette-webpack-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/brad/jasonette-webpack-plugin) [![Code Climate](https://codeclimate.com/github/brad/jasonette-webpack-plugin/badges/gpa.svg)](https://codeclimate.com/github/brad/jasonette-webpack-plugin) [![npm version](https://badge.fury.io/js/jasonette-webpack-plugin.svg)](https://badge.fury.io/js/jasonette-webpack-plugin)
+
 # Jasonette Webpack Plugin
 
 The Jasonette Webpack plugin aims to take some of the pain out of writing JSON for [Jasonette](https://jasonette.com/). With this plugin, your JSON is just an export of a JavaScript object. Some of the benefits you get with this approach:
