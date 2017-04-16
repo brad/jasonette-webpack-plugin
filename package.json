@@ -38,6 +38,7 @@
     "travis": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "cover": "nyc --require babel-register mocha",
     "release": "standard-version",
-    "build": "babel -d dist src"
+    "build": "babel -d dist src",
+    "prepublish": "npm run build"
   }
 }
