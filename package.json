@@ -15,7 +15,6 @@
     "uglify-js": "^2.8.22"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
     "babel-istanbul": "^0.12.2",
     "babel-loader": "^6.4.1",
