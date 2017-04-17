@@ -1,6 +1,7 @@
 import assert from 'assert'
 import fs from 'fs'
 import path from 'path'
+import timekeeper from 'timekeeper'
 import webpack from 'webpack'
 
 import JasonettePlugin from '../src'
@@ -38,6 +39,7 @@ const options = {
 describe('JasonettePlugin', () => {
   describe('apply()', () => {
     it('should output minimal JSON by default', (done) => {
+      timekeeper.freeze(new Date(1492404081284))
       webpack(options, (err, stats) => {
         if (err) {
           return done(err)
@@ -49,14 +51,15 @@ describe('JasonettePlugin', () => {
             return done(err)
           }
           const json_data = JSON.parse(data)
+          const items = json_data.$jason.head.templates.body.sections[0].items.map((item) => item.text)
 
           assert.equal('{ ˃̵̑ᴥ˂̵̑}', json_data.$jason.head.title)
           assert.equal('$render', json_data.$jason.head.actions.$load.success.type)
           assert.equal('Hello, { ˃̵̑ᴥ˂̵̑}!', json_data.$jason.head.templates.body.header.text)
-          assert.equal(
-            '{{ function text(){return\"Hello pretty functions!\"};return text() }}',
-            json_data.$jason.head.templates.body.sections[0].items[0].text
-          )
+          assert(items.indexOf('{{ function text(){return\"Hello pretty functions!\"};return text() }}') > -1)
+          assert(items.indexOf('regular string') > -1)
+          assert(items.indexOf('5') > -1)
+          assert(items.indexOf('2017-04-17T04:41:21.284Z') > -1)
           assert.equal(-1, data.indexOf('\n'))
           assert.equal(-1, data.indexOf('}\n'))
           assert.equal(-1, data.indexOf(']\n'))

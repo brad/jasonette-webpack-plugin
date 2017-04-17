@@ -25,6 +25,7 @@
     "mocha": "^3.2.0",
     "nyc": "^10.2.0",
     "standard-version": "^4.0.0",
+    "timekeeper": "^1.0.0",
     "webpack": "^2.2.0"
   },
   "homepage": "https://github.com/brad/jasonette-webpack-plugin",

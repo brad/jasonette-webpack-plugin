@@ -12,7 +12,19 @@ export default {
             text: function() {
               return 'Hello pretty functions!'
             }
-          }
+          },
+          {
+            type: 'label',
+            text: 'regular string'
+          },
+          {
+            type: 'label',
+            text: 5
+          },
+          {
+            type: 'label',
+            text: new Date()
+          },
         ]
       }
     ]
