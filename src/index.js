@@ -28,17 +28,15 @@ JasonettePlugin.prototype.apply = function(compiler) {
   compiler.plugin("emit", (compilation, callback) => {
     Object.keys(compilation.assets).forEach((asset) => {
       const compiled = vm.runInThisContext(compilation.assets[asset].source())
-      var source = JSON.stringify(
-        compiled.default || compiled.jasonette,
-        options.replacer,
-        options.space
-      )
-      compilation.assets[asset] = {
-        source: () => source,
-        size: () => source.length
-      }
+      Object.keys(compiled).forEach((json) => {
+        var src = JSON.stringify(compiled[json], options.replacer, options.space)
+        const filename = ['default', 'jasonette'].indexOf(json) > -1 ? asset : `${json}.json`
+        compilation.assets[filename] = {
+          source: () => src,
+          size: () => src.length
+        }
+      })
     })
-
     callback()
   })
 }

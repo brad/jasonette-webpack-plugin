@@ -2,7 +2,7 @@ import actions from './actions'
 import templates from './templates'
 
 
-export const jasonette = {
+const jasonette = {
   $jason: {
     head: {
       title: '{ ˃̵̑ᴥ˂̵̑}',
@@ -11,3 +11,5 @@ export const jasonette = {
     }
   }
 }
+
+export { actions, templates, jasonette }

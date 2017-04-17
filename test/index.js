@@ -51,6 +51,8 @@ describe('JasonettePlugin', () => {
           const json_data = JSON.parse(data)
 
           assert.equal('{ ˃̵̑ᴥ˂̵̑}', json_data.$jason.head.title)
+          assert.equal('$render', json_data.$jason.head.actions.$load.success.type)
+          assert.equal('Hello, { ˃̵̑ᴥ˂̵̑}!', json_data.$jason.head.templates.body.header.text)
           assert.equal(
             '{{ function text(){return\"Hello pretty functions!\"};return text() }}',
             json_data.$jason.head.templates.body.sections[0].items[0].text
@@ -103,7 +105,25 @@ describe('JasonettePlugin', () => {
           const json_data = JSON.parse(data)
 
           assert.equal('{ ˃̵̑ᴥ˂̵̑}', json_data.$jason.head.title)
-          done()
+
+          fs.readFile(path.resolve(__dirname, 'files', 'actions.json'), (err, data) => {
+            if (err) {
+              return done(err)
+            }
+            const json_data = JSON.parse(data)
+
+            assert.equal('$render', json_data.$load.success.type)
+
+            fs.readFile(path.resolve(__dirname, 'files', 'templates.json'), (err, data) => {
+              if (err) {
+                return done(err)
+              }
+              const json_data = JSON.parse(data)
+
+              assert.equal('Hello, { ˃̵̑ᴥ˂̵̑}!', json_data.body.header.text)
+              done()
+            })
+          })
         })
       })
     })

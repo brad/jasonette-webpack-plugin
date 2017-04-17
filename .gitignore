@@ -3,4 +3,4 @@ dist
 .nyc_output
 coverage
 coverage.lcov
-test/files/build.json
+test/files/*.json
