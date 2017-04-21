@@ -39,6 +39,6 @@
     "cover": "nyc --require babel-register mocha",
     "release": "standard-version",
     "build": "babel -d dist src",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   }
 }
