@@ -1,3 +1,8 @@
+0.0.3
+=====
+
+- Use babel-plugin-add-module-exports for easier imports
+
 0.0.2
 =====
 
